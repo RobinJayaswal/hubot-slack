@@ -1,5 +1,5 @@
 {
-  "name": "hubot-slack",
+  "name": "file-listener-hubot-slack",
   "version": "4.5.4",
   "description": "A Slack adapter for hubot",
   "main": "./slack",
@@ -18,10 +18,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "http://github.com/slackapi/hubot-slack.git"
+    "url": "https://github.com/RobinJayaswal/hubot-slack"
   },
   "bugs": {
-    "url": "https://github.com/slackapi/hubot-slack/issues"
+    "url": "https://github.com/RobinJayaswal/hubot-slack"
   },
   "dependencies": {
     "@slack/client": "3.16.1-sec",

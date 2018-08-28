@@ -40,6 +40,8 @@ class SlackBot extends Adapter
     @client.rtm.on "error", @error
     @client.rtm.on "authenticated", @authenticated
     @client.onEvent @eventHandler
+    @client.on 'raw_message', @upload
+
 
     # TODO: set this to false as soon as RTM connection closes (even if reconnect will happen later)
     # TODO: check this value when connection finishes (even if its a reconnection)
@@ -303,5 +305,9 @@ class SlackBot extends Adapter
       @robot.logger.error "Can't fetch users"
       return
     @client.updateUserInBrain member for member in res.members
+
+  upload: (msg) =>
+    rawMsg = JSON.parse(msg)
+    if (rawMsg.type == 'message') && (rawMsg.files) && (rawMsg.files.length) then @robot.emit 'upload', rawMsg
 
 module.exports = SlackBot
